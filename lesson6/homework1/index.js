@@ -1,7 +1,3 @@
-const len = [];
-
 function createEmptyArray(len) {
-  return [len];
+  return new Array(len);
 }
-console.log(len);
-console.log(len.length);
