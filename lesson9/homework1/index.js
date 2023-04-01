@@ -13,15 +13,15 @@
 // city
 // englishLevel
 
-const users = {
-  name: "Denis",
-  city: "Warsaw",
-  englishLevel: "A1",
-};
-console.log(users);
+// const users = {
+//   name: "Denis",
+//   city: "Warsaw",
+//   englishLevel: "A1",
+// };
+// console.log(users);
 
-let keys = Object.keys(users);
-console.log(keys);
+// let keys = Object.keys(users);
+// console.log(keys);
 
 // const getKeys = users;
 // const keys = Object.keys(users);
@@ -35,4 +35,10 @@ console.log(keys);
 
 // console.log(Object.keys(obj));
 
-function getKey(obj) {}
+function getKey(obj) {
+  const keys = Object.keys(obj);
+  keys.forEach((key) => {
+    console.log(`${key}`);
+  });
+}
+console.log(getKey({ name: "Denis", city: "Warsaw", englishLevel: "A1" }));
