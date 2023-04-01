@@ -1,38 +1,11 @@
-const studentsBirthDays = (students) => {
-  const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  const studentsByMonth = {};
+function getDiff(startDate, endDate) {
+  const diffMs = Math.abs(endDate - startDate);
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  const diffHours = Math.floor(
+    (diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  );
+  const diffMinutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+  const diffSeconds = Math.floor((diffMs % (1000 * 60)) / 1000);
 
-  for (let i = 0; i < months.length; i++) {
-    studentsByMonth[months[i]] = [];
-  }
-
-  for (let i = 0; i < students.length; i++) {
-    const student = students[i];
-    const birthDate = new Date(student.birthDate);
-    const monthName = months[birthDate.getMonth()];
-    studentsByMonth[monthName].push(student);
-  }
-
-  for (let monthName in studentsByMonth) {
-    studentsByMonth[monthName].sort((a, b) => {
-      const aDay = new Date(a.birthDate).getDate();
-      const bDay = new Date(b.birthDate).getDate();
-      return aDay - bDay;
-    });
-  }
-
-  return studentsByMonth;
-};
+  return `${diffDays}d ${diffHours}h ${diffMinutes}m ${diffSeconds}s`;
+}
