@@ -1,4 +1,4 @@
-function createCalculator() {
+export function createCalculator() {
   let memo = 0;
 
   return {
@@ -16,5 +16,3 @@ function createCalculator() {
     },
   };
 }
-
-exports = createCalculator;
